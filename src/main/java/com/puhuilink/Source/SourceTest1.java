@@ -1,8 +1,7 @@
 package com.puhuilink.Source;
 
-import com.puhuilink.Source.pojo.SensorReading;
+import com.puhuilink.pojo.SensorReading;
 import org.apache.flink.api.common.JobExecutionResult;
-import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 

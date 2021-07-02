@@ -1,11 +1,9 @@
 package com.puhuilink.Source;
 
-import com.puhuilink.Source.pojo.SensorReading;
+import com.puhuilink.pojo.SensorReading;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
-import org.apache.flink.streaming.api.functions.source.SourceFunction;
 import org.apache.flink.streaming.api.scala.DataStream;
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment;
-import org.apache.flink.table.expressions.Rand;
 
 import java.util.HashMap;
 import java.util.Random;

@@ -1,6 +1,6 @@
 package com.puhuilink.transform;
 
-import com.puhuilink.Source.pojo.SensorReading;
+import com.puhuilink.pojo.SensorReading;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.streaming.api.collector.selector.OutputSelector;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -8,7 +8,6 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.datastream.SplitStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

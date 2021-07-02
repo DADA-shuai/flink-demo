@@ -1,4 +1,4 @@
-package com.puhuilink.Source.pojo;
+package com.puhuilink.pojo;
 
 /**
  * @author ：yjj

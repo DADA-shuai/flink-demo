@@ -1,7 +1,6 @@
 package com.puhuilink.transform;
 
-import com.puhuilink.Source.pojo.SensorReading;
-import com.puhuilink.StreamingJob;
+import com.puhuilink.pojo.SensorReading;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.tuple.Tuple;
