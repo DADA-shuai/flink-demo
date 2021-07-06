@@ -9,10 +9,16 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.TimeCharacteristic;
+import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.windowing.evictors.Evictor;
+import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.streaming.api.windowing.triggers.Trigger;
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.util.OutputTag;
 import org.postgresql.core.Tuple;
 import scala.Tuple2;
 
@@ -82,6 +88,14 @@ public class Window_TimeCount {
 
         host_id.print();
 
+        SingleOutputStreamOperator<Metric> sum = map.keyBy("host_id").timeWindow(Time.seconds(15))
+//            .trigger(new Trigger<Metric, TimeWindow>() {})  定义window 什么时候关闭，触发计算并输出结果，一般用于强行关闭窗口
+//            .evictor(new Evictor<Metric, TimeWindow>() {})  过滤某些数据
+//            .allowedLateness(Time.minutes(1))  让窗口保留一分钟 结束延迟数据，一分钟后触发输出结果，关闭窗口
+//            .sideOutputLateData(new OutputTag<Metric>("late"))  实在迟到的数据可以放到侧输出流中，通过其他方式获取再计算
+            .sum("metric_value");
+
+        DataStream<Metric> late = sum.getSideOutput(new OutputTag<Metric>("late"));
 
         env.execute();
     }
