@@ -1,10 +1,8 @@
 package com.puhuilink.flinkTable
 
 import org.apache.flink.api.scala.{ExecutionEnvironment, _}
-import org.apache.flink.api.scala.typeutils.Types
 import org.apache.flink.table.api._
 import org.apache.flink.table.api.scala.BatchTableEnvironment
-import org.apache.flink.table.descriptors.{Csv, FileSystem, Schema}
 import org.apache.flink.types.Row
 
 object MyTable {
@@ -13,18 +11,18 @@ object MyTable {
 
     val env: ExecutionEnvironment = ExecutionEnvironment.getExecutionEnvironment
 
-    val bte: BatchTableEnvironment = TableEnvironment.getTableEnvironment(env)
+    val bte: BatchTableEnvironment = null
 
-    bte.connect(new FileSystem().path("C:\\Users\\无敌大大帅逼\\OneDrive\\文档\\Tencent Files\\order.csv"))
-      .withFormat(new Csv()
-        .field("name",Types.STRING)
-        .field("date1",Types.SQL_TIMESTAMP)
-        .field("order1",Types.INT))
-      .withSchema(new Schema()
-          .field("name",Types.STRING)
-          .field("date1",Types.SQL_TIMESTAMP)
-          .field("order1",Types.INT))
-      .registerTableSource("CsvTable")
+//    bte.connect(new FileSystem().path("C:\\Users\\无敌大大帅逼\\OneDrive\\文档\\Tencent Files\\order.csv"))
+//      .withFormat(new Csv()
+//        .field("name",Types.STRING)
+//        .field("date1",Types.SQL_TIMESTAMP)
+//        .field("order1",Types.INT))
+//      .withSchema(new Schema()
+//          .field("name",Types.STRING)
+//          .field("date1",Types.SQL_TIMESTAMP)
+//          .field("order1",Types.INT))
+//      .registerTableSource("CsvTable")
 
     val table: Table = bte.sqlQuery(
       """

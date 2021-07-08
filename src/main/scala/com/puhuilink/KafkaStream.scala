@@ -7,7 +7,6 @@ import org.apache.flink.streaming.api.datastream._
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.{CheckpointingMode, TimeCharacteristic}
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011
-import org.apache.flink.table.api.TableEnvironment
 import org.apache.flink.table.api.java.StreamTableEnvironment
 
 object KafkaStream {
@@ -16,7 +15,7 @@ object KafkaStream {
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
     env.enableCheckpointing(1000)
     env.getCheckpointConfig.setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE)
-    val tableEnv: StreamTableEnvironment = TableEnvironment.getTableEnvironment(env)
+    val tableEnv: StreamTableEnvironment = null
 
     val properties = new Properties()
     properties.setProperty("bootstrap.servers","cdh1:9092,cdh2:9092,cdh3:9092")

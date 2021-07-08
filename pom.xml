@@ -32,8 +32,9 @@ under the License.
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-		<flink.version>1.9.2</flink.version>
+		<flink.version>1.10.1</flink.version>
 		<scala.version>2.11</scala.version>
+    <scala.binary.version>2.11</scala.binary.version>
 		<java.version>1.8</java.version>
 		<hadoop.version>2.6.0-cdh5.16.2</hadoop.version>
 	</properties>
@@ -53,27 +54,6 @@ under the License.
 	</repositories>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-hadoop-fs</artifactId>
-			<version>${flink.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-common</artifactId>
-			<version>${hadoop.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-hadoop-compatibility_2.11</artifactId>
-			<version>${flink.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-shaded-hadoop2-uber</artifactId>
-			<version>2.8.3-1.8.3</version>
-		</dependency>
     <dependency>
       <groupId>org.apache.bahir</groupId>
       <artifactId>flink-connector-redis_2.11</artifactId>
@@ -97,7 +77,37 @@ under the License.
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-statebackend-rocksdb_2.12</artifactId>
-      <version>1.9.2</version>
+      <version>${flink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-table-planner_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-table-planner-blink_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-table-api-java-bridge_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-csv</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-json</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-jdbc_2.11</artifactId>
+      <version>${flink.version}</version>
     </dependency>
 <!--		<dependency>-->
 <!--			<groupId>org.apache.flink</groupId>-->
@@ -127,12 +137,12 @@ under the License.
 			<version>${flink.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-table_2.11</artifactId>
-			<version>1.7.0</version>
-			<scope>provided</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.apache.flink</groupId>-->
+<!--			<artifactId>flink-table_2.11</artifactId>-->
+<!--			<version>1.7.0</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
 		<!-- flink streaming的scala的api -->
 		<dependency>
 			<groupId>org.apache.flink</groupId>
@@ -144,14 +154,14 @@ under the License.
 		<dependency>
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-streaming-java_2.11</artifactId>
-			<version>1.9.2</version>
+			<version>${flink.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-java</artifactId>
-			<version>1.9.2</version>
+			<version>${flink.version}</version>
 			<scope>provided</scope>
 		</dependency>
 

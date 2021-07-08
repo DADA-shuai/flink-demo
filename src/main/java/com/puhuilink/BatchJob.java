@@ -25,9 +25,9 @@ import org.apache.flink.api.java.io.CsvReader;
 import org.apache.flink.api.java.operators.AggregateOperator;
 import org.apache.flink.api.java.operators.DataSource;
 import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.hadoopcompatibility.HadoopInputs;
+
 import org.apache.flink.util.Collector;
-import org.apache.hadoop.mapred.TextInputFormat;
+
 
 
 

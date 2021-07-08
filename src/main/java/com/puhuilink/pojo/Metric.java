@@ -1,5 +1,7 @@
 package com.puhuilink.pojo;
 
+import org.apache.flink.table.descriptors.Schema;
+
 /**
  * @author ：yjj
  * @date ：Created in 2021/7/2 9:54
@@ -7,7 +9,7 @@ package com.puhuilink.pojo;
  * @modified By：
  * @version: $
  */
-public class Metric {
+public class Metric{
     private Long host_id;
     private Long endpoint_id;
     private Long metric_id;

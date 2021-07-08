@@ -1,7 +1,8 @@
 package com.puhuilink.Source;
 
-import org.apache.flink.streaming.api.scala.DataStream;
-import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment;
+
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
  * @author ：yjj
@@ -11,7 +12,7 @@ import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment;
  * @version: $
  */
 public class SourceTest_2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
         executionEnvironment.setParallelism(1);
         DataStream<String> stringDataStream = executionEnvironment.readTextFile("C:\\Users\\无敌大大帅逼\\IdeaProjects\\flink-test\\flinkdemo\\src\\main\\resources\\Sensor.csv");
